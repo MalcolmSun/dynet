@@ -2,7 +2,7 @@ project(dynet)
 cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
-
+set(EIGEN3_INCLUDE_DIR /home/sjq/code/eigen)
 # DYNET uses Eigen which exploits modern CPU architectures. To get the
 # best possible performance, the following are recommended:
 #   1. use very recent versions of gcc or Clang to build
