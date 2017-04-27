@@ -650,6 +650,14 @@ struct MinDimension : public Node {
   unsigned second_dim;
 };
 
+struct MeanDimension : public Node {
+  explicit MeanDimension(const std::initializer_list<VariableIndex>& a, const std::vector<unsigned> dims, bool reduce_batch) : Node(a), reduce_dims(dims), reduce_batch(reduce_batch) {}
+  DYNET_NODE_DEFINE_DEV_IMPL()
+  virtual bool supports_multibatch() const override { return true}
+  std::vector<unsigned> reduce_dims;
+  bool reduce_batch;
+};
+
 } // namespace dynet
 
 #endif

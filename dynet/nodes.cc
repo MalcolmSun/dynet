@@ -2514,4 +2514,8 @@ void MinDimension::backward_dev_impl(const MyDevice & dev,
 }
 DYNET_NODE_INST_DEV_IMPL(MinDimension)
 
+void MeanDimension::forward_dev_impl(const MyDevice &dev, const std::vector<const Tensor *> &xs, Tensor &fx) const {
+
+}
+
 } // namespace dynet

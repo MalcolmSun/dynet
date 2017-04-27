@@ -1015,4 +1015,18 @@ Dim MinDimension::dim_forward(const vector<Dim>& xs) const {
   return ret;
 }
 
+string MeanDimension::as_string(const std::vector<std::string> &arg_names) const {
+  ostringstream s;
+  s << "mean_dim(" << arg_names[0] << ", reduced_dims=" << reduce_dims << ", reduce_batch=" << reduce_batch << ")";
+  return s.str();
+}
+
+Dim MeanDimension::dim_forward(const std::vector<Dim> &xs) const {
+  DYNET_ASSERT(xs.size() == 1, "Failed input count check in MeanDimension");
+
+  Dim ret(xs[0]);
+  ret.delete_dims(reduce_dims, reduce_batch);
+  return ret;
+}
+
 } // namespace dynet
